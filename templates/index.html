@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello world</h1>
+    {%extends 'basic.html'%}
+    {%block 'body'%}
+
+    {% for student in students%}
+    {%filter upper%}
+<li style="color: {%cycle 'red' 'green' %};"> 
+    {{ student.name}}-{{student.name | length|add:"2"}}-{{student.age}}
+</li>  
+    {%endfilter%}   
+    {% endfor %}
+
+    {% for Game in Games %}
+<li class="style">
+    {{Game.name}} {{Game.description}}
+</li>
+    {% endfor %}
+
+    {%endblock%}
